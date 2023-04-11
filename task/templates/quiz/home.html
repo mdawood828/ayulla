@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{% static 'libs/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        {% block script %}
+            <script src="{% static 'libs/jquery.min.js' %}"></script>
+            <script src="{% static 'libs/popper.min.js' %}"></script>
+            <script src="{% static 'libs/bootstrap.min.js' %}"></script>
+        {% endblock %}
+  </head>
+<style>
+.carousel{
+    margin-top: 50px;
+}
+.carousel-inner{
+    height: 100px;
+}
+.carousel-caption{
+    color: black;
+    top: 50%;
+}
+.div {
+    background-color: black;
+}
+</style>
+<body>
+
+<h1 class="text-center" style="margin-top: 3%">Welcome Ayulla</h1>
+
+<div class="text-center">
+      <a href="{{'front'}}">
+             <span class="btn btn-sm btn-dark">Home</span>
+        </a>
+         <a href="{{'register'}}">
+             <span class="btn btn-sm btn-dark">Sign Up</span>
+        </a>      
+        <a href="{{'login'}}">
+             <span class="btn btn-sm btn-dark">Login</span>
+        </a>
+        <a href="{{'recover'}}">
+             <span class="btn btn-sm btn-dark">Reset</span>
+        </a>
+</div>
+              
+</body>
+</html>

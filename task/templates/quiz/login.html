@@ -1,0 +1,40 @@
+{% load static %}
+<head>
+<link href="{% static 'libs/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+{% block script %}
+<script src="{% static 'libs/jquery.min.js' %}"></script>
+<script src="{% static 'libs/popper.min.js' %}"></script>
+<script src="{% static 'libs/bootstrap.min.js' %}"></script>
+{% endblock %}    
+</head>
+
+<br/><br/>
+    <div class="container-fluid">
+    <div class="col-md-5 offset-md-3">
+    
+    <h4 class="text-center text-dark">Login Please...</h4>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+    
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+        <label> Username : </label>
+            <input class="form-control" type="" name="email" placeholder="User Name"/>
+        </div>
+        <div class="form-group">
+        <label> Password : </label>
+            <input class="form-control" type="password" name="password" placeholder="Password"/>
+        </div>
+        <input class="btn btn-sm btn-dark" type="submit" value="Login"/>
+        <a href="{{'front'}}">
+             <span class="btn btn-sm btn-dark">Home</span>
+        </a>
+    </form>
+        
+         Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+    
+    </div>
+    </div>

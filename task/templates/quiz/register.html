@@ -1,0 +1,46 @@
+{% load static %}
+<head>
+<link href="{% static 'libs/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+{% block script %}
+<script src="{% static 'libs/jquery.min.js' %}"></script>
+<script src="{% static 'libs/popper.min.js' %}"></script>
+<script src="{% static 'libs/bootstrap.min.js' %}"></script>
+{% endblock %}    
+</head>
+
+<br/><br/>
+    <div class="container">
+    <div class="col-md-5 offset-md-3">
+    
+    <h4 class="text-center text-dark">Register</h4>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control" type="text" name="f_name" placeholder="First Name" required=""/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="l_name" placeholder="Last Name" required=""/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="email" name="email" placeholder="Email Address" required=""/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password" required=""/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password" required=""/>
+        </div>
+        <input class="btn btn-sm btn-dark" type="submit" value="Register"/>
+         <a href="{{'front'}}">
+             <span class="btn btn-sm btn-dark">Home</span>
+        </a>
+    </form>
+    Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+
+</div>
+</div>
